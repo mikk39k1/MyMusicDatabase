@@ -4,6 +4,7 @@ public class Song {
     private int songId;
     private String songName;
     private int albumId;
+    private int artistId;
 
     // CONSTRUCTOR -----------------------------------
 
@@ -24,6 +25,9 @@ public class Song {
         this.albumId = albumId;
     }
 
+    public void setArtistId(int artistId) {
+        this.artistId = artistId;
+    }
     // GETTER ----------------------------------------------------------
 
     public int getSongId() {
@@ -36,5 +40,9 @@ public class Song {
 
     public int getAlbumId() {
         return albumId;
+    }
+
+    public int getArtistId() {
+        return artistId;
     }
 }

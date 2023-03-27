@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Album Id</th>
+        <th>Album Name</th>
+        <th>Artist Id</th>
+        <th>See Songs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="album: ${albums}">
+        <td th:text="${album.albumId}" />
+        <td th:text="${album.albumName}" />
+        <td  th:text ="${album.artistId}"/>
+        <td><a href="/"><button>See Artist</button></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
