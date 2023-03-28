@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" th:href="@{~/style.css}" type="text/css">
 </head>
 <body>
 <table class="table">
@@ -20,9 +20,12 @@
     <tr th:each="song: ${songs}">
         <td th:text="${song.songId}" />
         <td th:text="${song.songName}" />
-        <td  th:text ="${song.albumId}"/>
+        <td th:text ="${song.albumId}"/>
         <td th:text="${song.artistId}"/>
-        <td><a href="/"><button>See Artists</button></a></td>
+        <td>
+            <a href="/"><button>See Artists</button></a>
+            <a th:href="@{'/deleteSong/'+${song.songId}}"><button>Delete Song</button></a>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -30,4 +30,9 @@ public class AlbumRepo {
         RowMapper<Album> rowMapperById = new BeanPropertyRowMapper<>(Album.class);
         return jdbcTemplate.query(sql,rowMapperById);
     }
+
+    public boolean deleteAlbum(int albumId) {
+        String sql = "DELETE FROM album WHERE album_id = ?";
+        return jdbcTemplate.update(sql,albumId) > 0;
+    }
 }

@@ -14,16 +14,18 @@
             <tr>
                 <th>Artist ID</th>
                 <th>Artist Name</th>
-                <th>See Albums</th>
-                <th>See Songs</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
                 <tr th:each="artist: ${artists}">
                     <td th:text="${artist.artistId}" />
                     <td th:text="${artist.firstName + ' ' + artist.lastName}" />
-                    <td><a th:href="@{/albums(artistId=${artist.artistId})}"><button>See Albums</button></a></td>
-                    <td><a th:href="@{/songs(artistId=${artist.artistId})}"><button>See Songs</button></a></td>
+                    <td>
+                        <a th:href="@{/albums(artistId=${artist.artistId})}"><button>See Albums</button></a>
+                        <a th:href="@{/songs(artistId=${artist.artistId})}"><button>See Songs</button></a>
+                        <a th:href="@{'/deleteArtist/'+${artist.artistId}}"><button>Delete Artist</button></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

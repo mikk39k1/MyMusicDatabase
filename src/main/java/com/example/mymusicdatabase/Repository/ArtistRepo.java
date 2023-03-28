@@ -26,4 +26,9 @@ public class ArtistRepo {
         String sql = "INSERT INTO artist (first_name, last_name) VALUES (?,?)";
         jdbcTemplate.update(sql, artist.getFirstName(), artist.getLastName());
     }
+
+    public boolean deleteArtist(int artistId) {
+        String sql = "DELETE FROM artist WHERE artist_id = ?";
+        return jdbcTemplate.update(sql, artistId) > 0;
+    }
 }

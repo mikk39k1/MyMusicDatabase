@@ -24,4 +24,12 @@ public class SongService {
     public List<Song> fetchSongsById(int artistId){
         return songRepo.fetchSongsById(artistId);
     }
+
+    public List<Song> fetchSongsByAlbumId(int albumId) {
+        return songRepo.fetchSongsByAlbumId(albumId);
+    }
+
+    public boolean deleteSong(int songId) {
+        return songRepo.deleteSong(songId);
+    }
 }

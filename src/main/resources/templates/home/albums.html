@@ -19,8 +19,12 @@
     <tr th:each="album: ${albums}">
         <td th:text="${album.albumId}" />
         <td th:text="${album.albumName}" />
-        <td  th:text ="${album.artistId}"/>
-        <td><a href="/"><button>See Artist</button></a></td>
+        <td th:text ="${album.artistId}"/>
+        <td>
+            <a th:href="@{'/viewSongsByAlbumId/'+${album.albumId}}"><button>See Songs in Album</button></a>
+            <a th:href="@{'/deleteAlbum/'+${album.albumId}}"><button>Delete Album</button></a>
+            <a href="/"><button>Back To Artists</button></a>
+        </td>
     </tr>
     </tbody>
 </table>

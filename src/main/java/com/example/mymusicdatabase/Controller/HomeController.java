@@ -7,7 +7,6 @@ import com.example.mymusicdatabase.Service.AlbumService;
 import com.example.mymusicdatabase.Service.ArtistService;
 import com.example.mymusicdatabase.Service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +48,12 @@ public class HomeController {
         return "home/songs";
     }
 
+    @GetMapping("/viewSongsByAlbumId/{album_id}")
+    public String viewSongsByAlbumId(@PathVariable("album_id")int albumId, Model model){
+        model.addAttribute("songs", songService.fetchSongsByAlbumId(albumId));
+        return "home/songs";
+    }
+
     @GetMapping("/createArtist")
     public String createArtist(){
         return "home/createArtist";
@@ -62,6 +67,26 @@ public class HomeController {
     @GetMapping("/createAlbum")
     public String createAlbum(){
         return "home/createAlbum";
+    }
+
+    // GET MAPPINGS TO DELETE DATA
+
+    @GetMapping("/deleteArtist/{artist_id}")
+    public String deleteArtist(@PathVariable("artist_id")int artistId){
+        boolean deleted = artistService.deleteArtist(artistId);
+        return deleted ? "redirect:/" : "redirect:/";
+    }
+
+    @GetMapping("/deleteAlbum/{album_id}")
+    public String deleteAlbum(@PathVariable("album_id")int albumId){
+        boolean deleted = albumService.deleteAlbum(albumId);
+        return deleted ? "redirect:/" : "redirect:/";
+    }
+
+    @GetMapping("/deleteSong/{song_id}")
+    public String deleteSong(@PathVariable("song_id")int songId){
+        boolean deleted = songService.deleteSong(songId);
+        return deleted ? "redirect:/" : "redirect:/";
     }
 
     // POST MAPPINGS TO CREATE NEW ARTISTS, ALBUMS AND SONGS TO TABLE

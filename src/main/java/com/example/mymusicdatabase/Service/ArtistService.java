@@ -20,4 +20,8 @@ public class ArtistService {
     public void addArtist(Artist artist){
         artistRepo.addArtist(artist);
     }
+
+    public boolean deleteArtist(int artistId) {
+        return artistRepo.deleteArtist(artistId);
+    }
 }

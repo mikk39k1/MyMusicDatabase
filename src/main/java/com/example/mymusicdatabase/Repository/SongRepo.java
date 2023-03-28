@@ -31,4 +31,15 @@ public class SongRepo {
         RowMapper<Song> rowMapperById = new BeanPropertyRowMapper<>(Song.class);
         return jdbcTemplate.query(sql,rowMapperById);
     }
+
+    public List<Song> fetchSongsByAlbumId(int albumId) {
+        String sql = "SELECT * FROM song WHERE album_id = " + albumId;
+        RowMapper<Song> rowMapper = new BeanPropertyRowMapper<>(Song.class);
+        return jdbcTemplate.query(sql,rowMapper);
+    }
+
+    public boolean deleteSong(int songId) {
+        String sql = "DELETE FROM song where song_id = ?";
+        return jdbcTemplate.update(sql,songId) > 0;
+    }
 }

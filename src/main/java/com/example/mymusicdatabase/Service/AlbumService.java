@@ -24,4 +24,8 @@ public class AlbumService {
     public List<Album> fetchByArtistId(int artistId) {
         return albumRepo.fetchByArtistId(artistId);
     }
+
+    public boolean deleteAlbum(int albumId) {
+        return albumRepo.deleteAlbum(albumId);
+    }
 }
