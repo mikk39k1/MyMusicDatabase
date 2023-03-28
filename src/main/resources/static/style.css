@@ -1,0 +1,73 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-div{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.table{
+    border-collapse: collapse;
+    width: 50%;
+    background-color: azure;
+    border: solid 1px black;
+    margin: 20px;
+}
+
+ .page{
+     display: flex;
+     justify-content: center;
+ }
+
+.form-div {
+    width: 30%;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+
+input{
+    padding: 5px;
+    margin: 10px;
+}
+
+th{
+    background-color: lightskyblue;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 6px;
+}
+
+tr:nth-child(even){
+    background-color: beige;
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: white;
+}
+
+button:hover{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: lightgrey;
+}
+

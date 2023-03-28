@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-<body>
-  <form action="/createNewSong" method="post">
-    <label>Song Name</label>
-    <input type="text" name="songName">
-    <label>Album Id</label>
-    <input type="text" name="albumId">
-    <input type="submit" value="Add Song">
-  </form>
+<body class="page">
+    <div class="form-div">
+      <form action="/createNewSong" method="post">
+        <label>Song Name:</label><br>
+        <input type="text" name="songName"><br><br>
+        <label>Album Id:</label><br>
+        <input type="text" name="albumId"><br><br>
+        <label>Artist Id:</label><br>
+        <input type="text" name="artistId"><br><br>
+          <div class="form-btn">
+              <button type="submit">Add Song</button>
+          </div>
+      </form>
+    </div>
 </body>
 </html>

@@ -22,12 +22,12 @@ public class SongRepo {
     }
 
     public void addNewSong(Song song){
-        String sql = "INSERT INTO song (song_name, album_id) VALUES (?, ?)";
-        jdbcTemplate.update(sql,song.getSongName(), song.getAlbumId());
+        String sql = "INSERT INTO song (song_name, album_id, artist_id) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql,song.getSongName(), song.getAlbumId(), song.getArtistId());
     }
 
     public List<Song> fetchSongsById(int artistId){
-        String sql = "SELECT * FROM song WHERE artistId = " + artistId;
+        String sql = "SELECT * FROM song WHERE artist_id = " + artistId;
         RowMapper<Song> rowMapperById = new BeanPropertyRowMapper<>(Song.class);
         return jdbcTemplate.query(sql,rowMapperById);
     }

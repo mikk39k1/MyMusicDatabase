@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+<div class="flex-container">
     <h1>Music Database</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Artist ID</th>
-            <th>Artist Name</th>
-            <th>See Albums</th>
-            <th>See Songs</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="artist: ${artists}">
-                <td th:text="${artist.artistId}" />
-                <td th:text="${artist.firstName + ' ' + artist.lastName}" />
-                <td><a th:href="@{/albums(artistId=${artist.artistId})}"><button>See Albums</button></a></td>
-                <td><a th:href="@{/songs(artistId=${artist.artistId})}"><button>See Songs</button></a></td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="/createArtist"><button>Create Artist</button></a>
-    <a href="/createSong"><button>Create Song</button></a>
-    <a href="/createAlbum"><button>Create Album</button></a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Artist ID</th>
+                <th>Artist Name</th>
+                <th>See Albums</th>
+                <th>See Songs</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="artist: ${artists}">
+                    <td th:text="${artist.artistId}" />
+                    <td th:text="${artist.firstName + ' ' + artist.lastName}" />
+                    <td><a th:href="@{/albums(artistId=${artist.artistId})}"><button>See Albums</button></a></td>
+                    <td><a th:href="@{/songs(artistId=${artist.artistId})}"><button>See Songs</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button-div">
+            <a href="/createArtist"><button>Create Artist</button></a>
+            <a href="/createSong"><button>Create Song</button></a>
+            <a href="/createAlbum"><button>Create Album</button></a>
+        </div>
+    </div>
 </body>
 </html>

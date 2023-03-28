@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Artist</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-<body>
-  <form action="/createNewArtist" method="post">
-    <label>Artist First Name</label>
-    <input type="text" name="firstName">
-    <label>Artist Last Name</label>
-    <input type="text" name="lastName">
-    <input type="submit" value="Create Artist">
-  </form>
-
+<body class="page">
+    <div class="form-div">
+      <form action="/createNewArtist" method="post">
+        <label>Artist First Name:</label><br>
+        <input type="text" name="firstName"><br><br>
+        <label>Artist Last Name:</label><br>
+        <input type="text" name="lastName"><br><br>
+          <div class="form-btn">
+                <button type="submit">Add Artist</button>
+          </div>
+      </form>
+    </div>
 </body>
 </html>
