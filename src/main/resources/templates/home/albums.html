@@ -12,7 +12,7 @@
         <th>Album Id</th>
         <th>Album Name</th>
         <th>Artist Id</th>
-        <th>Back to artist</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +23,7 @@
         <td>
             <a th:href="@{'/viewSongsByAlbumId/'+${album.albumId}}"><button>See Songs in Album</button></a>
             <a th:href="@{'/deleteAlbum/'+${album.albumId}}"><button>Delete Album</button></a>
+            <a th:href="@{'/editAlbum/'+${album.albumId}}"><button>Edit Album</button></a>
             <a href="/"><button>Back To Artists</button></a>
         </td>
     </tr>

@@ -17,6 +17,10 @@ public class AlbumService {
         return albumRepo.fetchAll();
     }
 
+    public Album findAlbumById(int albumId){
+        return albumRepo.findAlbumById(albumId);
+    }
+
     public void addNewAlbum(Album album){
         albumRepo.addNewAlbum(album);
     }
@@ -27,5 +31,9 @@ public class AlbumService {
 
     public boolean deleteAlbum(int albumId) {
         return albumRepo.deleteAlbum(albumId);
+    }
+
+    public void editAlbum(int albumId, Album album) {
+        albumRepo.editAlbum(albumId, album);
     }
 }

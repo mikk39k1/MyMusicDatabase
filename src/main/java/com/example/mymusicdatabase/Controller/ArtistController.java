@@ -14,28 +14,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class ArtistController {
 
     @Autowired
     ArtistService artistService;
 
 
-
-
-    // MAPPINGS THAT DISPLAYS THE HOME, ALBUMS, AND SONGS PAGE/TABLES --------------------
-    @GetMapping("/")
-    public String index(Model model){
-        List<Artist> artistList = artistService.fetchAll();
-        model.addAttribute("artists", artistList);
-        return "home/index";
+    @GetMapping("/createArtist")
+    public String createArtist(){
+        return "home/createArtist";
     }
 
 
+    // GET MAPPINGS TO DELETE DATA
+
+    @GetMapping("/deleteArtist/{artist_id}")
+    public String deleteArtist(@PathVariable("artist_id")int artistId){
+        boolean deleted = artistService.deleteArtist(artistId);
+        return deleted ? "redirect:/" : "redirect:/";
+    }
 
 
+    // POST MAPPINGS TO CREATE NEW ARTISTS TO TABLE
 
-
-
+    @PostMapping("/createNewArtist")
+    public String createNewArtist(@ModelAttribute Artist artist){
+        artistService.addArtist(artist);
+        return "redirect:/";
+    }
 
 
 

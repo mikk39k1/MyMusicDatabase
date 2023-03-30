@@ -25,6 +25,13 @@ public class AlbumRepo {
         jdbcTemplate.update(sql, album.getAlbumName(),album.getArtistId());
     }
 
+    public Album findAlbumById(int albumId){
+        String sql = "SELECT * FROM album WHERE album_id = ?";
+        RowMapper<Album> rowMapper = new BeanPropertyRowMapper<>(Album.class);
+        Album album = jdbcTemplate.queryForObject(sql,rowMapper,albumId);
+        return album;
+    }
+
     public List<Album> fetchByArtistId(int artistId) {
         String sql = "SELECT * FROM album WHERE artist_id = " + artistId;
         RowMapper<Album> rowMapperById = new BeanPropertyRowMapper<>(Album.class);
@@ -34,5 +41,10 @@ public class AlbumRepo {
     public boolean deleteAlbum(int albumId) {
         String sql = "DELETE FROM album WHERE album_id = ?";
         return jdbcTemplate.update(sql,albumId) > 0;
+    }
+
+    public void editAlbum(int albumId, Album album) {
+        String sql = "UPDATE album SET album_name = ?, album.artist_id = ? WHERE album_id = ?";
+        jdbcTemplate.update(sql, album.getAlbumName(), album.getArtistId(), albumId);
     }
 }
